@@ -1,0 +1,4 @@
+tags: one-liners one-liner macos linux port ports terminal
+name: Find a running process by it's port number
+
+lsof -i tcp:2181
