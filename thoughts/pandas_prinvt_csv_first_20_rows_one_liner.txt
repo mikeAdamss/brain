@@ -1,0 +1,4 @@
+tags: python one-liners one-liner pandas csv terminal
+name: Print the first 100 lines of a csv to terminal
+
+python -c 'import pandas as pd; import sys; df = pd.read_csv(sys.argv[1]); print(df[:100])' <NAME OF FILE>'

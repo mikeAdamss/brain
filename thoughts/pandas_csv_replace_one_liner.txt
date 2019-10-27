@@ -1,0 +1,4 @@
+tags: python one-liners one-liner pandas csv terminal
+name: Replace specific items in specific columns of a csv
+
+python -c 'import pandas as pd; import sys; df = pd.read_csv(sys.argv[1]); df[sys.argv[2]][df[sys.argv[2]] == sys.argv[3]] = sys.argv[4]; df.to_csv(sys.argv[1][2:], index=False)' <FILE> <COLUMN> <REPLACE_ME> <WITH ME>
