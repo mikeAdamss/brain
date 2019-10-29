@@ -1,0 +1,15 @@
+tags: jupyter jupytertext work jupytext jenkins pipeline
+name: Convert all jupyter notebooks to python files
+
+jupytext --to py *.ipynb
+git rm *.ipynb
+git add *.py
+git commit -m 'Use Jupytext to store Python files rather than Jupyter Notebooks.'
+
+# and because it usually comes bundled
+# FIND the values. It's ok to leave out the trello reference
+
+transformPipeline {
+   refFamily = ''
+   trelloCard = ''
+}
