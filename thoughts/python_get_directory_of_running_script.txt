@@ -1,5 +1,5 @@
-name: Get the directory of the currently executing python script
 tags: python directory path
+name: Get the directory of the currently executing python script
 
 import os 
 dir_path = os.path.dirname(os.path.realpath(__file__))
