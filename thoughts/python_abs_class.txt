@@ -4,11 +4,16 @@ name: abstract class for interface like functionality
 class Aeroplane(abc.ABC):
     @abc.abstractmethod
     def fly(self):
+        """
+        This abstract method should return a list
+        :rtype: list
+        """
         pass
 
 
 class Boeing(Aeroplane):
     def fly(self):
         print("Flying!")
+        return ["stuff"]
 
 b = Boeing()
