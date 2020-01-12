@@ -1,4 +1,5 @@
-
+tags: python abs abstract interface class
+name: abstract class for interface like functionality
 
 class Aeroplane(abc.ABC):
     @abc.abstractmethod
