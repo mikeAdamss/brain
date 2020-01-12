@@ -1,6 +1,8 @@
 tags: python abs abstract interface class
 name: abstract class for interface like functionality
 
+import abc
+
 class Aeroplane(abc.ABC):
     @abc.abstractmethod
     def fly(self):
