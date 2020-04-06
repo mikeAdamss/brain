@@ -1,0 +1,5 @@
+tags: csvlint csv docker
+name: Csvlinting via docker
+
+# The schema needs to be a jons file, usually (in cogs world) ending -schema.json
+docker run -v $PWD:/workspace gsscogs/csvlint csvlint -s <SCHEMA GOES HERE>
