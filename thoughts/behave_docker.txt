@@ -1,5 +1,5 @@
 name: Running behave with a docker image
-tage: docker behave gssutils testing test nose unit
+tags: docker behave gssutils testing test nose unit
 
 # With gssuilts do this
 docker run -v /var/run/docker.sock:/var/run/docker.sock -v $PWD:/workspace -w /workspace python:3.7 sh ./test.sh
