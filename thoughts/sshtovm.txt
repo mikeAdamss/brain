@@ -1,0 +1,4 @@
+tags: ssh google gcloud vm cloud platform
+name: SSH to a google cloud compute vm instance
+
+gcloud compute ssh [NAME OF INSTANCE] --zone [YOUR_ZONE]
