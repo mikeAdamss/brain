@@ -1,0 +1,10 @@
+tags: google gcloud vm platform
+name: Create a google cloud vm via the command line
+
+# Create a DEFAULT VM
+# MAke sure to chanve machine-type and zone as needed
+gcloud compute instances create gcelab2 --machine-type n1-standard-2 --zone europe-west1
+
+# To see the DEFAULT settings for CMs
+gcloud compute instances create --help
+
