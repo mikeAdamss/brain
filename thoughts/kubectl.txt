@@ -12,3 +12,6 @@ kubectl expose deployment hello-server --type=LoadBalancer --port 8080
 
 # Inspect the cluster
 kubectl get service
+
+# Delete the cluster
+gcloud container clusters delete [CLUSTER-NAME]
