@@ -1,0 +1,11 @@
+tags: container kubernetes google cloud googlecloud deploy
+name: Basic kubectl commands from google cloud quiklabs
+
+# Create auth credentails
+gcloud container clusters get-credentials [CLUSTER-NAME]
+
+# Deploy a pre-made "hello world" container
+kubectl create deployment hello-server --image=gcr.io/google-samples/hello-app:1.0
+
+# Expose port
+kubectl expose deployment hello-server --type=LoadBalancer --port 8080
