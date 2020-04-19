@@ -9,3 +9,6 @@ kubectl create deployment hello-server --image=gcr.io/google-samples/hello-app:1
 
 # Expose port
 kubectl expose deployment hello-server --type=LoadBalancer --port 8080
+
+# Inspect the cluster
+kubectl get service
