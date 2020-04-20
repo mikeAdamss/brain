@@ -28,3 +28,6 @@ gcloud compute instance-groups managed create nginx-group \
 
 # Check it worked
 gcloud compute instances list
+
+# Allow access through firewall
+gcloud compute firewall-rules create www-firewall --allow tcp:80
