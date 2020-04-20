@@ -1,0 +1,30 @@
+tags: google gcloud instance group instancegroup cloud server start terminal nginx
+name: Start an instance from template-script in google cloud shell
+
+# USE GOOGLE CLOUD SHELL
+
+# Make the template
+cat << EOF > startup.sh
+#! /bin/bash
+apt-get update
+apt-get install -y nginx
+service nginx start
+sed -i -- 's/nginx/Google Cloud Platform - '"\$HOSTNAME"'/' /var/www/html/index.nginx-debian.html
+EOF
+
+# Use the template
+gcloud compute instance-templates create nginx-template \
+         --metadata-from-file startup-script=startup.sh
+         
+# Create a taget pool
+# gcloud compute target-pools create nginx-pool
+
+# Create ana isntance group using the template
+gcloud compute instance-groups managed create nginx-group \
+         --base-instance-name nginx \
+         --size 2 \
+         --template nginx-template \
+         --target-pool nginx-pool
+
+# Check it worked
+gcloud compute instances list
