@@ -1,0 +1,51 @@
+tags: google cloud nginx rules network http
+name: Google cloud ngix rule setup
+
+# NETWORK load balancer
+
+# from shell/auth'd terminal
+# NOTE - nginx-pool is just the name of the pool in question here, can change
+gcloud compute forwarding-rules create nginx-lb \
+         --region us-central1 \
+         --ports=80 \
+         --target-pool nginx-pool
+         
+# CREATE A HTTP HEALTH CHECK
+gcloud compute http-health-checks create http-basic-check
+
+# HTTP LOAD BALANCE
+
+# create
+# NOTE - nginx-group is out chosen group name, this will change
+gcloud compute instance-groups managed \
+       set-named-ports nginx-group \
+       --named-ports http:80
+       
+# Create a backend service
+gcloud compute backend-services create nginx-backend \
+      --protocol HTTP --http-health-checks http-basic-check --global
+      
+ # Add the instance nginx group to the list of backend services
+ gcloud compute backend-services add-backend nginx-backend \
+    --instance-group nginx-group \
+    --instance-group-zone us-central1-a \
+    --global
+    
+# Create a default url map
+gcloud compute url-maps create web-map \
+    --default-service nginx-backend
+    
+# Create a http proxy to route requests to that map
+gcloud compute target-http-proxies create http-lb-proxy \
+    --url-map web-map
+    
+# Create a global forwarding rule to handle and route incoming requests. A forwarding rule sends traffic to a 
+# specific target HTTP or HTTPS proxy depending on the IP address, IP protocol, and port specified. The global 
+# forwarding rule does not support multiple ports.
+gcloud compute forwarding-rules create http-content-rule \
+        --global \
+        --target-http-proxy http-lb-proxy \
+        --ports 80
+        
+# Check rules exist
+gcloud compute forwarding-rules list
