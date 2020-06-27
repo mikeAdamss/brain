@@ -1,0 +1,4 @@
+tags: ssh terminal gcloud
+name: example ssh to a gcloud compute instance
+
+gcloud compute ssh "trywithssh" --project "work-env" --zone "europe-west2-c" -- -L 8080:localhost:8080
