@@ -1,9 +1,24 @@
 tags: terminal database postgres
 name: Edit Postgres Config for tutorial
 
-sudo /etc/postgresql/9.5/main/pg_hba.conf
 
-# At the bottom
+ -------
+ 
+sudo /etc/postgresql/9.5/main/pg_hba.conf
 
 # IPv4 remote connections for the tutorial:
 host    all             all           [YOUR_IPV4_ADDRESS]/32         md5
+
+---------
+
+sudo /etc/postgresql/9.5/main/postgresql.conf
+
+# uncomment
+#listen_addresses = 'localhost'
+
+#for
+listen_addresses = '*'
+
+# this is listen on all ip adresses
+
+
