@@ -21,4 +21,8 @@ listen_addresses = '*'
 
 # this is listen on all ip adresses
 
+----------
 
+# RESTART POSTGRES
+
+sudo service postgresql restart
