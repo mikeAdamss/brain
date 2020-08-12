@@ -1,0 +1,17 @@
+tags: database SQL postgres
+name: Simple Postgres Commands
+
+----
+# Run a file
+sudo -u postgres psql -f ./test.sql
+
+# Log into a database called postgres as a user called postgres
+sudo -u postgres psql postgres
+
+
+------
+Logged into postgres
+\? - help
+\q - quit
+
+
