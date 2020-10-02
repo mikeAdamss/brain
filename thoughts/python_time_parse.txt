@@ -1,0 +1,11 @@
+tags: python time parse datetime
+name: Parse time with python
+
+# An interval where the from and to periods are in cell A1 of a spreadsheet
+if tab.name.lower() == "contents":
+    date_cell = tab.excel_ref("A1").value
+    raw_date = date_cell.split("Wales:")[1].strip()
+    date1, date2 = raw_date.split("to")
+    time_difference = parse(date2) - parse(date1)
+    period = "gregorian-interval/{}/P{}D".format(parse(date1).strftime("%Y-%m-%dT00:00:00"), time_difference.days)
+    continue
