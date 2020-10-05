@@ -1,0 +1,7 @@
+tags: make shell help makefile Makefile Make MakeFiles
+name: Hacky useful things for makefiles
+
+# Hacky but effective list of options
+.PHONY: all
+help:
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
