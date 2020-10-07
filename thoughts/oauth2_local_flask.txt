@@ -1,0 +1,16 @@
+tags: oauth2 flask python
+name: Simple instructions on how to dev oauth 2 from a local flask server
+
+https://console.developers.google.com/apis/credentials
+- create credentials
+- oauth client ID
+
+Select the Web application option at the top. You can provide a name for the client in the Name field as well. 
+The name you provide will be displayed to users when they are consenting to your application acting on their behalf.
+
+You’ll be running your web application locally for now, so you can set the Authorized JavaScript origins to https://127.0.0.1:5000 
+and Authorized redirect URIs to https://127.0.0.1:5000/login/callback. This will allow your local Flask application to communicate with Google.
+
+Finally, hit Create and take note of the client ID and client secret. You’ll need both later.
+
+information taken from: https://realpython.com/flask-google-login/
