@@ -12,7 +12,7 @@ eg `alias brain="git -C /home/mike/mikeAdamss/brain pull && python3 /home/mike/m
 ### Usage:
 `brain` will list all the tags for all thoughts, along with a count of their occurances.
 
-`brain <tag>` or `brain <tag> <tag>` (for ,pre precise results) will return you the text from `/thoughts` with a bit of friendly colour.
+`brain <tag>` or `brain <tag> <tag>` (for more precise results) will return you the text from `/thoughts` with a bit of friendly colour.
 
 
 ### Adding Snippets:
