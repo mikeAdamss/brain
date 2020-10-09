@@ -1,0 +1,29 @@
+tags: python encypt decrpyt cyptography
+name: Simple value encryption/descryption with python
+
+from cryptography.fernet import Fernet
+
+# Create a class using the key
+key = b'PCHl_MjGyEyBxLYha3S-cWg_SDDmjT4YYaKYh4Z7Yug=' # CHANGE THIS!
+cipher_suite = Fernet(key)
+
+# Convert password string to bytes string then encrypt with the class
+plain_text_password = "I am a password"
+plain_text_password_as_bytes = bytes(plain_text_password, "utf-8")
+ciphered_text = cipher_suite.encrypt(plain_text_password_as_bytes)   
+print("Bytes", ciphered_text)
+
+ciphered_text_str = str(ciphered_text, "utf-8")
+print("Str", ciphered_text_str)
+# You can now strick this in a database/store
+
+# Convert back to str (i.e after getting out of database/store)
+recyphered_text = bytes(ciphered_text_str, "utf-8")
+print(recyphered_text)
+
+# Now unencrypt it
+recyphered_text = bytes(ciphered_text_str, "utf-8")
+print(recyphered_text)
+unencrypted = cipher_suite.decrypt(recyphered_text)
+unencrypted_as_str = str(unencrypted, "utf-8")
+print(unencrypted_as_str)
