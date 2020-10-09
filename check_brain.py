@@ -69,10 +69,9 @@ def find_thoughts(wanted_tags):
                             else:
                                 print(colour(line.replace("\n", "")))
 
-                        colour = switchColour(colour)
-
-                if not just_print_the_tags:
+                if not just_print_the_tags and match:
                     print()
+                    colour = switchColour(colour)
 
         if just_print_the_tags:
             print("Usage: `brain <tag1> <tag2> etc...` for 1+ tags\n")
