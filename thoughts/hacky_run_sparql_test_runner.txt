@@ -1,0 +1,20 @@
+tags: nasty todo docker sparql test cubes validation
+name: Quick and nasty way to run the sparql test runner locally
+
+# Note - definetly NOT a sensible way to do it, come back to this when you get a chance
+
+# git clone tests to local
+git clone https://github.com/GSS-Cogs/gdp-sparql-tests
+
+# build a container and copy the test in
+```
+FROM cloudfluff/sparql-test-runner
+COPY /gdp-sparql-tests/tests /usr/local/tests/   # TODO - logically not necessary
+```
+
+# start the container via:
+sudo docker run -v $PWD:/workspace -w /workspace -it <CONTAINER ID> /bin/bash
+
+# within the container
+# note - "qb" is only one of three test suites
+sparql-test-runner -i -t ./gdp-sparql-tests/tests/qb ./<NAME OF TTL FILE>.ttl
