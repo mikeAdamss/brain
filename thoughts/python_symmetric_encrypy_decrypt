@@ -4,7 +4,7 @@ name: Simple value encryption/descryption with python
 from cryptography.fernet import Fernet
 
 # Note, one liner to generate a key
-# python3 -c "import os;import base64;print(base64.urlsafe_b64encode(os.urandom(32)))" 
+# python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())" 
 
 # Create a class using the key
 key = b'PCHl_MjGyEyBxLYha3S-cWg_SDDmjT4YYaKYh4Z7Yug=' # CHANGE THIS!
