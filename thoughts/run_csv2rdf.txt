@@ -1,0 +1,8 @@
+tags: rdf csv2rdf csv work docker
+name: Run csv2rdf through docker
+
+# where the files in question are:
+# 1.) employment_centres_observations.csv
+# 1.) employment_centres_observations.csv-schema.json
+
+sudo docker run -v $PWD:/workspace -w /workspace gsscogs/csv2rdf csv2rdf -t ./employment_centres_observations.csv -u ./employment_centres_observations.csv-metadata.json -m annotated > employment_centres_observations.csv.ttl
