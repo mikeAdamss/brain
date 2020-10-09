@@ -77,8 +77,16 @@ def find_thoughts(wanted_tags):
             print("Usage: `brain <tag1> <tag2> etc...` for 1+ tags\n")
             print("Available tags:")
             print("---------------")
+
+            tags_per_line = 4
+            tag_line = []
             for tag, count in unique_tags.items():
-                print(count, " "*(2-len(str(count))), "|  ", tag)
+                tag_line.append("{} {:15}".format(count, tag))
+                if len(tag_line) == tags_per_line:
+                    print("".join(tag_line))
+                    tag_line = []
+                
+                #print(count, " "*(2-len(str(count))), "|  ", tag)
             print()
 
 if __name__ == "__main__":
