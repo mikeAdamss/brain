@@ -1,0 +1,28 @@
+tags: github actions ci python
+name: Example github action for running gssutils tests
+
+
+name: Run gssutils tests
+
+# on push to any repo
+on: push
+
+jobs:
+  tests:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.7'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        sudo pip install -e git+https://github.com/pypa/pipenv.git@master#egg=pipenv
+    - name: Run Tests
+      run: |
+        pipenv install -r test-requirements.txt
+        pipenv run behave -D record_mode=all --tags=-skip
