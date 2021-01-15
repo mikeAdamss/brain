@@ -1,9 +1,13 @@
 tags: github gssutils gss-utils gss bump release
 name: bump gss utils release version
 
-• git tag -m ‘Some message’ -a v0.5.something-bumped-up
+• git tag -a v0.5.something-bumped-up -m ‘Some message’
 • git push --follow-tags
-• update the databaker-docker/requirements.txt file to point to the new version
-• git commit/push databaker-docker
-• wait 10 mins for hub.docker.com to build the updated image
-• docker pull gsscogs/databaker on ci.floop.org.uk to get the latest versions on Jenkins.
+• update the databaker-docker/Pipfile to point to the new version
+
+in databaker-docker
+• update the gssutils version number in the Pipfile
+• use the makefile to update the lockfile
+• push the changes
+• git tag -a v0.0.something-bumped-up -m ‘Some message’
+• git push --follow-tags
